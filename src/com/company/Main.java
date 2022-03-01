@@ -3,33 +3,27 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
-        Zoo zoos = new WhiteSwan("Аккуу", "Белый", 2, "Одетта");
-        Zoo zoo = new Lion("Лев", "Золотисто-желтый", 3, "Симба");
-        Zoo zoo1 = new Eagle("Орел", "Белый", 2, "Акшумкар");
-        Zoo[] zoo2 = {zoos,zoo,zoo1};
-        for (Zoo a:zoo2) {
-        if (a instanceof Swimable){
-            System.out.println(a);
-            ((Swimable) a).swim();
-            a.simbol();
-            a.dikye();
-            a.beauty();
-        }
-        if (a instanceof Flyable){
-            System.out.println(a);
-            ((Flyable) a).fly();
-            a.simbol();
-            a.dikye();
-            a.beauty();
-        }
-        if (a instanceof Runable){
-            System.out.println(a);
-            ((Runable) a).run();
-            a.simbol();
-            a.dikye();
-            a.beauty();
-        }
-        }
+
+        Course course = new Course("Peaksoft","Grazhdanskaya 119 ",
+                new Student[]{new Student("Aizhan",25,"java",3),
+                              new Student("Beks",18,"java",3),
+                              new Student("Rayim",15,"java",3),
+                              new Student("Ruslan",20,"java",3),
+                new Student("Saikal",14,"js",6)});
+
+        System.out.print(course);
+
+        for (Student st : course.getStudents()) {
+                  System.out.print("\n"+st.getName() + " ");
+                  try{
+                      System.out.print(st.getAge() + " ");
+                  }catch (InvalidAgeException e){
+                      System.err.print(" \n"+st.getName() + " Studenttin jashy 16 kichine kursta okui albait");
+                  }
+                  System.out.print(st.getGroup() + " ");
+                  System.out.print(st.getBatch() + " ");
+                }
+
+
     }
 }
